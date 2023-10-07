@@ -1,24 +1,38 @@
-# README
+# 環境構築（Rails + Docker)
+下記の課題対応レポジトリになります。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+07_docker/003_docker.md (dockerで開発構築を構築する より)
+https://github.com/happiness-chain/practice/blob/main/07_docker/003_docker.md
 
-* Ruby version
+## 手順を記載
 
-* System dependencies
+- ①当リポジトリをcloneする
+```
+git clone git@github.com:Taguchi-ivi/rails-docker.git
+```
 
-* Configuration
+- ②フォルダへ移動
+```
+cd rails-docker
+```
 
-* Database creation
+- ③dockerを起動する(dockerのインストールは省略)
+```
+docker-compose up -d
+```
 
-* Database initialization
+- ④dbを作成
+```
+docker-compose run web rails db:create
+```
 
-* How to run the test suite
+- ⑤dbを更新
+```
+docker-compose run web rails db:migrate
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+- ⑥確認
+全ての操作が完了したので下記をクリックしサイトが表示されるか確認する
 
-* Deployment instructions
-
-* ...
+    http://localhost:3000
